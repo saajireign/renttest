@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="Appointment" table="T_APPOINTMENT">
+		<id name="appointmentId" column="APPOINTMENT_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name="roomUnit" class="RoomUnit" column="ROOM_ID"></many-to-one>
+			<many-to-one name="renter" class="Renter" column="RENTER_ID"></many-to-one>
+		<property name="appointmentStartDate" column="APPOINTMENT_START_DATE"></property>
+		<property name="appointmentEndDate" column="APPOINTMENT_END_DATE"></property>
+		<property name="appointmentDesc" column="APPOINTMENT_DESC"></property>
+			<property name="appointmentGuarenteeMoney" column="APPOINTMENT_GUARENTEE_MONEY"></property>
+		<bag name="renterFeeRights" inverse="true">
+		    <key column="APPOINTMENT_ID"></key>
+		    <one-to-many class="RenterFeeRight"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

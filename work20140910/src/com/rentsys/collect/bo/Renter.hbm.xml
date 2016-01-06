@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="Renter" table="T_RENTER" abstract="true">
+		<id name="renterId" column="RENTER_ID">
+			<generator class="hilo"></generator>
+		</id>
+		<property name="renterDesc" column="RENTER_DESC"></property>
+		<property name="renterName" column="RENTER_NAME"></property>
+		<property name="renterType" column="RENTER_TYPE"></property>
+		<property name="renterStatus" column="RENTER_STATUS"></property>
+		<bag name="appointments" inverse="true">
+		    <key column="RENTER_ID"></key>
+		    <one-to-many class="Appointment"></one-to-many>
+		</bag>
+		<bag name="collectRenterFees" inverse="true">
+		    <key column="RENTER_ID"></key>
+		    <one-to-many class="CollectRenterFee"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

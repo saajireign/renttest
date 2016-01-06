@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="CollectFee" table="T_COLLECT_FEE" >
+	    <id name="listId" column="LIST_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name = "collect" class="Collect" column="COLLECT_ID"/>
+		<many-to-one name = "fee" class="Fee" column="FEE_ID"/>
+	
+		<property name = "collectDate" column="COLLECT_DATE"/>
+		<property name = "chargeId" column="CHARGE_ID"/>
+		<property name = "categoryCollectId" column="CATEGORY_COLLECT_ID"/>
+
+</class>
+</hibernate-mapping>

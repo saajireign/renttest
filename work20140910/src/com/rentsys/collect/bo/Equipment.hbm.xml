@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<union-subclass name="Equipment" table="T_EQUIPMENT" extends="Renter">
+		<property name="buyPrice" column="BUY_PRICE"></property>
+		<property name="buyDate" column="BUY_DATE"></property>
+		<property name="yearOfGuarenteeRepire" column="YEAR_OF_GUARENTEE_REPIRE"></property>
+		<property name="repiredTimes" column="REPIRE_TIMES"></property>
+		<property name="latestRepireDate" column="LATEST_REPIRE_DATE"></property>
+</union-subclass>
+</hibernate-mapping>

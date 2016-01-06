@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="CollectType" table="T_COLLECT_TYPE" >
+	    <id name="collectTypeId" column="COLLECT_TYPE">
+			<generator class="identity"></generator>
+		</id>
+		<bag name="categoryCollects" inverse="true">
+		    <key column="COLLECT_TYPE"></key>
+		    <one-to-many class="CategoryCollect"></one-to-many>
+		</bag>
+		<property name = "desc" column = "TYPE_DESC"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="Person" table="T_PERSON">
+		<id name="personId" column="PERSON_ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="cardType" column="CARD_TYPE"></property>
+		<property name="cardNumber" column="CARD_NUMBER"></property>
+		<property name="name" column="NAME"></property>
+			<property name="birthDay" column="BIRTHDAY"></property>
+				<property name="educationLevel" column="EDUCATION_LEVEL"></property>
+					<property name="gender" column="GENDER"></property>
+			<property name="work" column="WORK"></property>		
+	</class>
+</hibernate-mapping>

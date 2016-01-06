@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="CollectRenterFee" table="T_COLLECT_RENTER_FEE" >
+	    <id name="recordId" column="RECORD_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name = "renter" class="Renter" column="RENTER_ID"/>
+		<many-to-one name = "collect" class="Collect" column="COLLECT_ID"/>
+		<property name = "renterFeeAmount" column="RENTER_FEE_AMOUNT"/>
+		<property name = "renterFeeStatus" column="RENTER_FEE_STATUS"/>
+
+</class>
+</hibernate-mapping>

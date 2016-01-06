@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="UnitRoomVolumn" table="T_UNIT_ROOM_VOLUMN" >
+	    <id name="recordId" column="RECORD_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name = "roomUnit" class="RoomUnit" column="ROOM_ID"/>
+		
+		<many-to-one name = "fee" class="Fee" column="FEE_ID"/>
+		<property name = "volumn" column="VOLUMN"/>
+		<property name = "recordDate" column="RECORD_DATE"/>
+		
+</class>
+</hibernate-mapping>

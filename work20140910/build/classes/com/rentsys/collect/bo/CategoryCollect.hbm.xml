@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="CategoryCollect" table="T_CATEGORY_COLLECT" >
+	    <id name="categoryCollectId" column="CATEGORY_COLLECT_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name = "collectType" class="CollectType" column="COLLECT_TYPE"/>
+		<bag name="collects" inverse = "true">
+		    <key column="CATEGORY_COLLECT_ID"></key>
+		    <one-to-many class="Collect" />
+		</bag>
+		<property name = "collectTemplateName" column="COLLECT_TEMPLATE_NAME"/>
+</class>
+</hibernate-mapping>

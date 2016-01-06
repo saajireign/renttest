@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="RenterFeeRight" table="T_RENTER_FEE_RIGHT">
+		<composite-id>
+			<key-many-to-one name="appointment" class="Appointment" column="APPOINTMENT_ID"/>
+			<key-many-to-one name="fee" class="Fee" column="FEE_ID"/>
+		</composite-id>
+			<property name="rightValue" column="RIGHT_VALUE"></property>	
+			<property name="startDate" column="START_DATE"></property>	
+			<property name="endDate" column="END_DATE"></property>
+			
+			
+	</class>
+</hibernate-mapping>

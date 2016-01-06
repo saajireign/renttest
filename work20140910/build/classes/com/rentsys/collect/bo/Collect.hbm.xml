@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="Collect" table="T_COLLECT" >
+	    <id name="collectId" column="COLLECT_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name = "collectRequest" class="CollectRequest" column="REQUEST_ID"/>
+		<bag name="collectRenterFees" inverse="true">
+		    <key column="COLLECT_ID"></key>
+		    <one-to-many class="CollectRenterFee"></one-to-many>
+		</bag>
+		<bag name="collectRoomFees" inverse="true">
+		    <key column="COLLECT_ID"></key>
+		    <one-to-many class="CollectRoomFee"></one-to-many>
+		</bag>
+			<bag name="collectFees" inverse = "true">
+		    <key column="COLLECT_ID"></key>
+		    <one-to-many class="CollectFee" />
+		</bag>
+		<many-to-one name = "categoryCollect" class="CategoryCollect" column="CATEGORY_COLLECT_ID"/>
+		<bag name="feePrices" inverse = "true">
+		    <key column="COLLECT_ID"></key>
+		    <one-to-many class="FeePrice" />
+		</bag>
+		<property name = "collectDate" column="COLLECT_DATE"/>
+		<property name = "fromDate" column="FROM_DATE"/>
+		<property name = "toDate" column="TO_DATE"/>
+</class>
+</hibernate-mapping>

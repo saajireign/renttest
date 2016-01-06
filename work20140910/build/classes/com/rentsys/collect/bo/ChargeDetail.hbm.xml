@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo">
+	<class name="ChargeDetail" table="T_CHARGE_DETAIL">
+		<id name="chargeId" column="CHARGE_ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="categoryDesc" column="CATEGORY_DESC"></property>
+		<property name="payPeriod" column="PAY_PERIOD"></property>
+		<property name="payMonth" column="PAY_MONTH"></property>
+		<many-to-one name = "fee" class="Fee" column="FEE_ID"/>
+	
+	</class>
+</hibernate-mapping>
