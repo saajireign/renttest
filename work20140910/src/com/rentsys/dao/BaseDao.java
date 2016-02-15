@@ -21,8 +21,12 @@ import com.pub.util.ReflectHelper;
 
 
 
-public class BaseDao<T extends Serializable,PK extends Serializable> extends SpringSessionContext implements DAO{
+public abstract class BaseDao<T extends Serializable,PK extends Serializable> extends SpringSessionContext implements DAO{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1259369783850796388L;
 	protected Class<T> entityClass = ReflectHelper.getSuperClassGenricType(getClass());
 	public BaseDao(SessionFactoryImplementor sessionFactory) {
 		super(sessionFactory);

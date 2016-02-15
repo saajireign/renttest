@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rentsys.collect.bo.address.Room;
+
 public class RoomUnit implements Serializable{
 
 	/**
@@ -13,7 +15,7 @@ public class RoomUnit implements Serializable{
 	/**
 	 * 主键，房间id
 	 */
-	private Integer roomId;
+	private Integer roomUnitId;
 	/**
 	 * 房间描述信息
 	 */
@@ -34,6 +36,38 @@ public class RoomUnit implements Serializable{
 	 * 租赁房间的要求（如必须为单身，爱干净等）
 	 */
 	private String roomRequirements;
+	
+	private Room room;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((room == null) ? 0 : room.hashCode());
+		result = prime * result
+				+ ((roomUnitId == null) ? 0 : roomUnitId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RoomUnit other = (RoomUnit) obj;
+		if (room == null) {
+			if (other.room != null)
+				return false;
+		} else if (!room.equals(other.room))
+			return false;
+		if (roomUnitId == null) {
+			if (other.roomUnitId != null)
+				return false;
+		} else if (!roomUnitId.equals(other.roomUnitId))
+			return false;
+		return true;
+	}
 	List<Appointment> appointments = new ArrayList<Appointment>();
 	List<CollectRoomFee> collectRoomFees = new ArrayList<CollectRoomFee>();
 	List<UnitRoomVolumn> unitRoomVolumns = new ArrayList<UnitRoomVolumn>();
@@ -58,12 +92,7 @@ public class RoomUnit implements Serializable{
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
-	public Integer getRoomId() {
-		return roomId;
-	}
-	public void setRoomId(Integer roomId) {
-		this.roomId = roomId;
-	}
+	
 	public String getRoomDesc() {
 		return roomDesc;
 	}
@@ -94,28 +123,18 @@ public class RoomUnit implements Serializable{
 	public void setRoomRequirements(String roomRequirements) {
 		this.roomRequirements = roomRequirements;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((roomId == null) ? 0 : roomId.hashCode());
-		return result;
+
+	public Integer getRoomUnitId() {
+		return roomUnitId;
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		RoomUnit other = (RoomUnit) obj;
-		if (roomId == null) {
-			if (other.roomId != null)
-				return false;
-		} else if (!roomId.equals(other.roomId))
-			return false;
-		return true;
+	public void setRoomUnitId(Integer roomUnitId) {
+		this.roomUnitId = roomUnitId;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
 	

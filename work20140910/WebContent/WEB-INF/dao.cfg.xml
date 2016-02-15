@@ -12,7 +12,12 @@
        http://www.springframework.org/schema/aop     
        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd   
       ">
-      
+    <bean id="reflectHelper" class="com.pub.util.ReflectHelper">
+	</bean>
+	 
+	 <bean id="baseDao" class="com.rentsys.dao.BaseDao" abstract = "true">	
+	 <property name="helper" ref="reflectHelper"></property>
+	</bean>
 	<bean id="userdao" class="dao.userDao">
 		<property name="sf" ref="sessionFactory"></property>
 	</bean>

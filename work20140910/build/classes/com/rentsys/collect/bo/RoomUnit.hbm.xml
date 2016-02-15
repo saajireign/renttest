@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.rentsys.collect.bo">
-	<class name="RoomUnit" table="T_ROOM_UNIT">
-		<id name="roomId" column="ROOM_ID">
+<hibernate-mapping>
+	<class name="com.rentsys.collect.bo.RoomUnit" table="T_ROOM_UNIT">
+		<id name="roomUnitId" column="ROOM_UNIT_ID">
 			<generator class="identity"></generator>
 		</id>
 		<property name="roomDesc" column="ROOM_DESC"></property>
 		<property name="roomAddress" column="ROOM_ADDRESS"></property>
 		<property name="roomSquare" column="ROOM_SQUARE"></property>
+		<many-to-one name="Room" class="com.rentsys.collect.bo.address.Room" column="ROOM_ID"></many-to-one>
 			<property name="roomStyle" column="ROOM_STYLE"></property>
 				<property name="roomRequirements" column="ROOM_REQUIREMENTS"></property>
 		<bag name="appointments" inverse="true">
 		    <key column="ROOM_ID"></key>
-		    <one-to-many class="Appointment"></one-to-many>
+		    <one-to-many class="com.rentsys.collect.bo.Appointment"></one-to-many>
 		</bag>
 		<bag name="collectRoomFees" inverse="true">
 		    <key column="ROOM_ID"></key>
-		    <one-to-many class="CollectRoomFee"></one-to-many>
+		    <one-to-many class="com.rentsys.collect.bo.CollectRoomFee"></one-to-many>
 		</bag>
 		<bag name="unitRoomVolumns" inverse="true">
 		    <key column="ROOM_ID"></key>
-		    <one-to-many class="UnitRoomVolumn"></one-to-many>
+		    <one-to-many class="com.rentsys.collect.bo.UnitRoomVolumn"></one-to-many>
 		</bag>
 	</class>
 </hibernate-mapping>

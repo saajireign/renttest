@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.rentsys.collect.bo.address">
+	<class name="Street" table="T_STREET">
+		<id name="streetId" column="STREET_ID">
+			<generator class="identity"></generator>
+		</id>
+		<many-to-one name="region" class="Region" column="REGION_ID"></many-to-one>
+		<property name="streetName" column="STREET_NAME"></property>
+		<bag name="buildings" inverse="true">
+		    <key column="STREET_ID"></key>
+		    <one-to-many class="Building"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

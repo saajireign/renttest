@@ -57,6 +57,12 @@
 			<value>com/rentsys/collect/bo/ChargeDetail.hbm.xml</value>
 			<value>com/rentsys/collect/bo/FeePrice.hbm.xml</value>
 			<value>com/rentsys/collect/bo/UnitRoomVolumn.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/ProvinceOrCity.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/City.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/Region.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/Street.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/Building.hbm.xml</value>
+			<value>com/rentsys/collect/bo/address/Room.hbm.xml</value>
 		</list>
 	</property>
 </bean>
