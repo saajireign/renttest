@@ -11,7 +11,7 @@ public class CategoryCollect implements Serializable {
 	 */
 	private static final long serialVersionUID = -7016146309484595267L;
 	private Long categoryCollectId;
-	private CollectType collectType;
+	private CollectType collectType;//1.按人头2.按流量
 	private List<Collect> collects;
 	private String collectTemplateName;
 	public CategoryCollect(){

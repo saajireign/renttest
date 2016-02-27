@@ -7,14 +7,7 @@
 			<generator class="identity"></generator>
 		</id>
 		<many-to-one name = "collectRequest" class="CollectRequest" column="REQUEST_ID"/>
-		<bag name="collectRenterFees" inverse="true">
-		    <key column="COLLECT_ID"></key>
-		    <one-to-many class="CollectRenterFee"></one-to-many>
-		</bag>
-		<bag name="collectRoomFees" inverse="true">
-		    <key column="COLLECT_ID"></key>
-		    <one-to-many class="CollectRoomFee"></one-to-many>
-		</bag>
+		
 			<bag name="collectFees" inverse = "true">
 		    <key column="COLLECT_ID"></key>
 		    <one-to-many class="CollectFee" />
@@ -27,5 +20,6 @@
 		<property name = "collectDate" column="COLLECT_DATE"/>
 		<property name = "fromDate" column="FROM_DATE"/>
 		<property name = "toDate" column="TO_DATE"/>
+		<property name = "collectFeeSum" column="COLLECT_FEE_SUM"/>
 </class>
 </hibernate-mapping>

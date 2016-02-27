@@ -8,10 +8,20 @@
 		</id>
 		<many-to-one name = "collect" class="Collect" column="COLLECT_ID"/>
 		<many-to-one name = "fee" class="Fee" column="FEE_ID"/>
-	
+		<bag name="collectRenterFees" inverse="true">
+		    <key column="LIST_ID"></key>
+		    <one-to-many class="CollectRenterFee"></one-to-many>
+		</bag>
+		<bag name="collectRoomFees" inverse="true">
+		    <key column="LIST_ID"></key>
+		    <one-to-many class="CollectRoomFee"></one-to-many>
+		</bag>
 		<property name = "collectDate" column="COLLECT_DATE"/>
 		<property name = "chargeId" column="CHARGE_ID"/>
 		<property name = "categoryCollectId" column="CATEGORY_COLLECT_ID"/>
-
+		<property name = "collectFeeAmount" column="COLLECT_FEE_AMOUNT"/>
+		<property name = "collectFeeSum" column="COLLECT_FEE_SUM"/>
+		<property name = "collectFeeStatus" column="COLLECT_FEE_STATUS"/>
+		<property name = "priceId" column="PRICE_ID"/>
 </class>
 </hibernate-mapping>

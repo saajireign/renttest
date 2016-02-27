@@ -9,8 +9,9 @@ public class CollectRoomFee implements Serializable{
 	 */
 	private static final long serialVersionUID = 1710552979102984999L;
 	private RoomUnit roomUnit;
-	private Collect collect;
+	private CollectFee collectFee;
 	private BigDecimal roomFeeAmount;
+	private BigDecimal roomFeeSum;
 	private String collectRoomFeeStatus;
 	private Long recordId;
 	public CollectRoomFee(){
@@ -22,12 +23,7 @@ public class CollectRoomFee implements Serializable{
 	public void setRoomUnit(RoomUnit roomUnit) {
 		this.roomUnit = roomUnit;
 	}
-	public Collect getCollect() {
-		return collect;
-	}
-	public void setCollect(Collect collect) {
-		this.collect = collect;
-	}
+
 	public BigDecimal getRoomFeeAmount() {
 		return roomFeeAmount;
 	}
@@ -46,12 +42,38 @@ public class CollectRoomFee implements Serializable{
 	public void setRecordId(Long recordId) {
 		this.recordId = recordId;
 	}
+
+	public CollectFee getCollectFee() {
+		return collectFee;
+	}
+	public void setCollectFee(CollectFee collectFee) {
+		this.collectFee = collectFee;
+	}
+	
+	public BigDecimal getRoomFeeSum() {
+		return roomFeeSum;
+	}
+	public void setRoomFeeSum(BigDecimal roomFeeSum) {
+		this.roomFeeSum = roomFeeSum;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
+				+ ((collectFee == null) ? 0 : collectFee.hashCode());
+		result = prime
+				* result
+				+ ((collectRoomFeeStatus == null) ? 0 : collectRoomFeeStatus
+						.hashCode());
+		result = prime * result
 				+ ((recordId == null) ? 0 : recordId.hashCode());
+		result = prime * result
+				+ ((roomFeeAmount == null) ? 0 : roomFeeAmount.hashCode());
+		result = prime * result
+				+ ((roomFeeSum == null) ? 0 : roomFeeSum.hashCode());
+		result = prime * result
+				+ ((roomUnit == null) ? 0 : roomUnit.hashCode());
 		return result;
 	}
 	@Override
@@ -63,11 +85,37 @@ public class CollectRoomFee implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		CollectRoomFee other = (CollectRoomFee) obj;
+		if (collectFee == null) {
+			if (other.collectFee != null)
+				return false;
+		} else if (!collectFee.equals(other.collectFee))
+			return false;
+		if (collectRoomFeeStatus == null) {
+			if (other.collectRoomFeeStatus != null)
+				return false;
+		} else if (!collectRoomFeeStatus.equals(other.collectRoomFeeStatus))
+			return false;
 		if (recordId == null) {
 			if (other.recordId != null)
 				return false;
 		} else if (!recordId.equals(other.recordId))
 			return false;
+		if (roomFeeAmount == null) {
+			if (other.roomFeeAmount != null)
+				return false;
+		} else if (!roomFeeAmount.equals(other.roomFeeAmount))
+			return false;
+		if (roomFeeSum == null) {
+			if (other.roomFeeSum != null)
+				return false;
+		} else if (!roomFeeSum.equals(other.roomFeeSum))
+			return false;
+		if (roomUnit == null) {
+			if (other.roomUnit != null)
+				return false;
+		} else if (!roomUnit.equals(other.roomUnit))
+			return false;
 		return true;
 	}
+	
 }

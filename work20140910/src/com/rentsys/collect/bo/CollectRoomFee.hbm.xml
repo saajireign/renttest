@@ -7,8 +7,9 @@
 			<generator class="identity"></generator>
 		</id>
 		<many-to-one name = "roomUnit" class="RoomUnit" column="ROOM_ID"/>
-		<many-to-one name = "collect" class="Collect" column="COLLECT_ID"/>
+		<many-to-one name = "collectFee" class="CollectFee" column="LIST_ID"/>
 		<property name = "roomFeeAmount" column="ROOM_FEE_AMOUNT"/>
+		<property name = "roomFeeSum" column="ROOM_FEE_SUM"/>
 		<property name = "collectRoomFeeStatus" column="ROOM_FEE_STATUS"/>
 
 </class>

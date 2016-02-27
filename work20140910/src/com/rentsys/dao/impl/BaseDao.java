@@ -1,4 +1,4 @@
-package com.rentsys.dao;
+package com.rentsys.dao.impl;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -17,6 +17,7 @@ import org.springframework.orm.hibernate4.SpringSessionContext;
 import org.hibernate.Criteria;
 
 import com.pub.util.ReflectHelper;
+import com.rentsys.dao.DAO;
 
 
 

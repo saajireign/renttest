@@ -20,7 +20,7 @@
   
   <context-param>
   	<param-name>contextConfigLocation</param-name>
-  	<param-value>classpath:applicationContext.xml,/WEB-INF/dao.cfg.xml</param-value>
+  	<param-value>classpath:applicationContext.xml,/WEB-INF/dao.cfg.xml,/WEB-INF/service.cfg.xml,/WEB-INF/struts2.cfg.xml</param-value>
   </context-param>
   
 </web-app>

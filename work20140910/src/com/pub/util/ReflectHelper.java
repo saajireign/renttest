@@ -5,6 +5,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -301,4 +303,41 @@ public class ReflectHelper {
 		}
 		return (Class) params[index];
 	}
+	public Object getObjectByRsAndClass(ResultSet rs,Object obj) throws SQLException{
+		
+		Field[] fields=getFields(obj);
+		for(Field field:fields)
+		{
+			if(rs.getObject(field.getName())!=null)
+			{
+				if(isFieldTypeBoolean(field)){
+					Double tempd=rs.getDouble(field.getName());
+					Integer tmpint1=Integer.valueOf(tempd.intValue());
+					Object isboolean=getObjectByString(Integer.class,String.valueOf(tmpint1));
+					if(Integer.valueOf(String.valueOf((Integer)isboolean))==0){
+						setter(obj,field.getName(),"false",Boolean.class);
+					}else{
+						setter(obj,field.getName(),"true",Boolean.class);
+					}
+//					System.out.println(field.getName()+"is boolean");
+				}else if(isFieldTypeInt(field)){
+					Double temp=rs.getDouble(field.getName());
+					Integer tmpint=Integer.valueOf(temp.intValue());
+					setter(obj,field.getName(),String.valueOf(tmpint).trim(), field.getType());
+//					System.out.println(field.getName()+"is int");
+				}
+				else{
+					setter(obj,field.getName(),String.valueOf(rs.getObject(field.getName())).trim(),field.getType());
+				}
+			}
+		}
+//		System.out.println(obj);
+		return obj;
+		}
+		public Boolean isFieldTypeDouble(Field field){
+			if(field.getType().getName().trim().equals("java.lang.Double")){
+				return true;
+			}
+			return false;
+		}
 }

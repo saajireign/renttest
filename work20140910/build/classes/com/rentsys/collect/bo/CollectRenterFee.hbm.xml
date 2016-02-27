@@ -7,9 +7,9 @@
 			<generator class="identity"></generator>
 		</id>
 		<many-to-one name = "renter" class="Renter" column="RENTER_ID"/>
-		<many-to-one name = "collect" class="Collect" column="COLLECT_ID"/>
+		<many-to-one name = "collectFee" class="CollectFee" column="LIST_ID"/>
 		<property name = "renterFeeAmount" column="RENTER_FEE_AMOUNT"/>
 		<property name = "renterFeeStatus" column="RENTER_FEE_STATUS"/>
-
+		<property name = "renterFeeSum" column="RENTER_FEE_SUM"/>
 </class>
 </hibernate-mapping>

@@ -61,13 +61,21 @@ public class RenterFeeRight implements Serializable{
 		this.endDate = endDate;
 	}
 
+	
+
+	
+
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((appointment == null) ? 0 : appointment.hashCode());
 		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
 		result = prime * result + ((fee == null) ? 0 : fee.hashCode());
-		result = prime * result + ((appointment == null) ? 0 : appointment.hashCode());
+		
 		result = prime * result
 				+ ((rightValue == null) ? 0 : rightValue.hashCode());
 		result = prime * result
@@ -84,6 +92,11 @@ public class RenterFeeRight implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		RenterFeeRight other = (RenterFeeRight) obj;
+		if (appointment == null) {
+			if (other.appointment != null)
+				return false;
+		} else if (!appointment.equals(other.appointment))
+			return false;
 		if (endDate == null) {
 			if (other.endDate != null)
 				return false;
@@ -93,11 +106,6 @@ public class RenterFeeRight implements Serializable{
 			if (other.fee != null)
 				return false;
 		} else if (!fee.equals(other.fee))
-			return false;
-		if (appointment == null) {
-			if (other.appointment != null)
-				return false;
-		} else if (!appointment.equals(other.appointment))
 			return false;
 		if (rightValue == null) {
 			if (other.rightValue != null)
@@ -111,6 +119,7 @@ public class RenterFeeRight implements Serializable{
 			return false;
 		return true;
 	}
+
 
 
 	
