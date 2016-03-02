@@ -12,6 +12,9 @@
 			<property name="birthDay" column="BIRTHDAY"></property>
 				<property name="educationLevel" column="EDUCATION_LEVEL"></property>
 					<property name="gender" column="GENDER"></property>
-			<property name="work" column="WORK"></property>		
+			<property name="work" column="WORK"></property>	
+			<property name="isRented" column="IS_RENTED"></property>	
+			<property name="modifiedDate" column="MODIFIED_DATE"></property>	
+			<property name="creationDate" column="CREATION_DATE"></property>	
 	</class>
 </hibernate-mapping>

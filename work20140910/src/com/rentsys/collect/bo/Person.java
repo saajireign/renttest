@@ -30,6 +30,27 @@ public class Person implements Serializable {
 	private String educationLevel;
 	private String gender;
 	private String work;
+	private String isRented;
+	private Date creationDate;
+	private Date modifiedDate;
+	public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+	public String getIsRented() {
+		return isRented;
+	}
+	public void setIsRented(String isRented) {
+		this.isRented = isRented;
+	}
 	public Person(){
 		
 	}

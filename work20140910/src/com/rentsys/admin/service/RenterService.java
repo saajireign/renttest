@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.rentsys.collect.bo.Appointment;
 import com.rentsys.collect.bo.Fee;
+import com.rentsys.collect.bo.Person;
 import com.rentsys.collect.bo.Renter;
 import com.rentsys.collect.bo.RenterFeeRight;
 import com.rentsys.collect.bo.RoomUnit;

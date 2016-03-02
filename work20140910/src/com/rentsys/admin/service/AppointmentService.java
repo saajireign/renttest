@@ -1,13 +1,12 @@
-package com.rentsys.admin.dao;
+package com.rentsys.admin.service;
 
 import java.util.List;
 
 import com.rentsys.collect.bo.Appointment;
 import com.rentsys.collect.bo.Fee;
 import com.rentsys.collect.bo.address.Room;
-import com.rentsys.dao.DAO;
 
-public interface AppointmentDao extends DAO {
-	List<Appointment> getAppointmentsByRoom(Room room);
+public interface AppointmentService {
 	List<Appointment> getAppointmentsByFeeAndRoom(Fee fee,Room room);
+	Boolean saveAppointment(Appointment appointment);
 }

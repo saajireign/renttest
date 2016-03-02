@@ -66,6 +66,12 @@ public class ProvinceServiceImpl implements ProvinceService{
 		return provinceDao.getObjectList();
 	}
 
+	@Override
+	public Boolean deleteOne(ProvinceOrCity address) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

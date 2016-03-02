@@ -6,4 +6,5 @@ public interface AddressService<T> {
 	List<T> getByName(String name);
 	Boolean addAddress(T address);
 	List<T> getAll();
+	Boolean deleteOne(T address);
 }
